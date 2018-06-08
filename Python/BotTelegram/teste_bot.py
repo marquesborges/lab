@@ -1,3 +1,4 @@
+import os
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import Chat, Contact
@@ -17,7 +18,10 @@ def finish(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Atividades encerradas! Até mais...")
     updater.stop()                     
 
-updater = Updater(token='595074795:AAHVCXh3NJ1_1Qmw59biLPDIbub8JPdKp9k')
+TOKEN='595074795:AAHVCXh3NJ1_1Qmw59biLPDIbub8JPdKp9k'
+PORT = int(os.environ.get('PORT', '8443'))
+
+updater = Updater(TOKEN)
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -40,5 +44,11 @@ finish_handler = CommandHandler('finish', finish)
 
 dispatcher.add_handler(finish_handler)
 
-updater.start_polling()
+updater.start_webhook(listen='0.0.0.0',
+                      port=PORT,
+                      url_path='')
+
+updater.bot.set_webhook('https://bot-borges.herokuapp.com/' + TOKEN)
+
+updater.idle()
 
