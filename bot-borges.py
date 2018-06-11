@@ -44,11 +44,13 @@ finish_handler = CommandHandler('finish', finish)
 
 dispatcher.add_handler(finish_handler)
 
-updater.start_webhook(listen='0.0.0.0',
-                      port=PORT,
-                      url_path='')
+#updater.start_webhook(listen='0.0.0.0',
+#                      port=PORT,
+#                      url_path='')
 
-updater.bot.set_webhook('https://bot-borges.herokuapp.com/' + TOKEN)
+#updater.bot.set_webhook('https://bot-borges.herokuapp.com/' + TOKEN)
 
-updater.idle()
+#updater.idle()
+
+updater.start_polling()
 
