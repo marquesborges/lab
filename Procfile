@@ -1,1 +1,1 @@
-bot-borges: python3 bot-borges.py
+web: python3 bot-borges.py
