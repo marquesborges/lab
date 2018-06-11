@@ -18,7 +18,7 @@ def finish(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Atividades encerradas! Até mais...")
     updater.stop()                     
 
-TOKEN='595074795:AAHVCXh3NJ1_1Qmw59biLPDIbub8JPdKp9k'
+TOKEN=os.environ['TELEGRAM_TOKEN']
 PORT = int(os.environ.get('PORT', '8443'))
 
 updater = Updater(TOKEN)
