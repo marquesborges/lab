@@ -1,1 +1,1 @@
-telegram==3.6
+telegram>=3.6
