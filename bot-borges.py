@@ -19,7 +19,7 @@ def finish(bot, update):
     updater.stop()                     
 
 TOKEN=os.environ['TELEGRAM_TOKEN']
-PORT = int(os.environ['TELEGRAM_PORT'])
+PORT = int(os.environ.get('PORT','8443'))
 
 updater = Updater(TOKEN)
 
